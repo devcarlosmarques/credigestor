@@ -1,0 +1,129 @@
+{% extends 'dashboard/index.html' %}
+
+{% block content %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Cadastro de Propostas</title>
+    </head>
+    <body class="p-0 m-0">
+
+      <div class="container my-3">
+        <h2>Cadastro de Propostas</h2>
+      </div>
+
+      <div class="container">
+        <form class="row g-3" action="{% url 'cadastro_proposta' %}" method="post">
+          {% csrf_token %}
+
+          <div class="col-md-4">
+            <label for="campo_nome" class="form-label">Nome do Cliente</label>
+            <input name="campo_nome" type="text" class="form-control" id="campo_nome" />
+          </div>
+
+          <div class="col-md-4">
+            <label for="campo_cpf" class="form-label">CPF</label>
+            <input name="campo_cpf" type="text" class="form-control" id="id_cpf" />
+            <script type="text/javascript">
+              $('#id_cpf').mask('000.000.000-00')
+            </script>
+          </div>
+
+          <div class="col-4">
+            <label for="campo_proposta" class="form-label">Proposta</label>
+            <input name="campo_proposta" type="text" class="form-control" id="campo_proposta" />
+          </div>
+
+          <div class="col-md-4">
+            <label for="campo_orgao" class="form-label">Orgão</label>
+            <select name="campo_orgao" class="form-select">
+              <option selected>Escolha um orgão</option>
+              <option value="INSS">INSS</option>
+              <option value="FEDERAL">FEDERAL</option>
+              <option value="PREFEITURA DO RECIFE">PREF. RECIFE</option>
+              <option value="GOVERNO DE PERNAMBUCO">GOV. PERNAMBUCO</option>
+              <option value="EXERCITO">EXÉRCITO</option>
+              <option value="AERONAUTICA">AERONÁUTICA</option>
+              <option value="MARINHA">MARINHA</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label for="campo_operacao" class="form-label">Operação</label>
+            <select name="campo_operacao" class="form-select">
+              <option selected>Escolha a operação</option>
+              <option value="NOVO">NOVO</option>
+              <option value="REFIN">REFIN</option>
+              <option value="PORTABILIDADE">PORTABILIDADE</option>
+              <option value="CARTAO CONSIGNADO">CARTÃO CONSIGNADO</option>
+              <option value="CARTAO BENEFICIO">CARTÃO BENEFICIO</option>
+              <option value="FGTS">FGTS</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label for="campo_banco" class="form-label">Banco</label>
+            <select name="campo_banco" class="form-select">
+              <option selected>Escolha o banco</option>
+              <option value="BMG">BMG</option>
+              <option value="ITAU">ITAU</option>
+              <option value="DAYCOVAL">DAYCOVAL</option>
+              <option value="C6 BANK">C6 BANK</option>
+              <option value="BANRISUL">BANRISUL</option>
+              <option value="MERCANTIL">MERCANTIL</option>
+              <option value="OLE CONSIGNADO">OLÉ CONSIGNADO</option>
+              <option value="BRADESCO">BRADESCO</option>
+              <option value="SAFRA">SAFRA</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <label for="campo_valor" class="form-label">Valor do Contrato</label>
+            <input name="campo_valor" type="text" class="form-control" id="campo_valor" />
+          </div>
+
+          <div class="col-md-3">
+            <label for="campo_parcela" class="form-label">Parcela</label>
+            <input name="campo_parcela" type="text" class="form-control" id="campo_parcela" />
+          </div>
+
+          <div class="col-md-3">
+            <label for="campo_prazo" class="form-label">Prazo</label>
+            <select name="campo_prazo" class="form-select">
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="36">36</option>
+              <option value="48">48</option>
+              <option value="60">60</option>
+              <option value="72">72</option>
+              <option value="84">84</option>
+              <option value="96">96</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <label for="campo_status" class="form-label">Status</label>
+            <select name="campo_status" id="campo_status" class="form-select">
+              <option value="ANDAMENTO">ANDAMENTO</option>
+              <option value="REPROVADO">REPROVADO</option>
+              <option value="INTEGRADO">INTEGRADO</option>
+              <option value="PENDENTE">PENDENTE</option>
+            </select>
+          </div>
+
+          <div class="col-12 mt-3">
+            <div class="row">
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-success">Cadastrar Proposta</button>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+  </html>
+{% endblock %}

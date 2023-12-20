@@ -1,0 +1,61 @@
+{% extends "dashboard/index.html" %}
+
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propostas Cadastradas</title>
+  </head>
+  <body>
+    <h2>Propostas Cadastradas</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome do Cliente:</th>
+          <th scope="col">CPF do Cliente:</th>
+          <th scope="col">Proposta:</th>
+          <th scope="col">Orgão:</th>
+          <th scope="col">Operação:</th>
+          <th scope="col">Banco:</th>
+          <th scope="col">Valor do Contrato:</th>
+          <th scope="col">Parcela:</th>
+          <th scope="col">Prazo:</th>
+          <th scope="col">Status da Proposta:</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for proposta in lista_proposta %}
+          <tr>
+            <td>{{ proposta.nome }}</td>
+            <td>{{ proposta.cpf }}</td>
+            <td>{{ proposta.proposta }}</td>
+            <td>{{ proposta.orgao }}</td>
+            <td>{{ proposta.operacao }}</td>
+            <td>{{ proposta.banco }}</td>
+            <td>R$ {{ proposta.valor }}</td>
+            <td>R$ {{ proposta.parcela }}</td>
+            <td>{{ proposta.prazo }}x</td>
+            <td>{{ proposta.status }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="10">Nenhuma proposta cadastrada.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="col-6">
+      <form action="http://127.0.0.1:8000/nova_proposta/">
+        <button type="submit" class="btn btn-success">Cadastrar Proposta</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+{% endblock %}
