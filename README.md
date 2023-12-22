@@ -26,7 +26,7 @@ pip install -r requeriments.txt
 2º
 python manage.py runserver
 
-3º - Copiar e colar o endereço abaixo em seu navegador:
+3º - Acessar o endereço abaixo em seu navegador:
 http://127.0.0.1:8000/
 
 ## ⚙️ Usuário Padrão
