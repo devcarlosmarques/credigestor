@@ -18,7 +18,7 @@ tzdata==2023.3
 
 ### 🔧 Instalação
 
-Executar os seguintes comandos descritos abaixo no console do seu IDE Python:
+Executar os comandos descritos abaixo no console do seu IDE Python:
 
 1º: 
 pip install -r requeriments.txt
