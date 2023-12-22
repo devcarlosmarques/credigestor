@@ -33,7 +33,8 @@ http://127.0.0.1:8000/
 Login: admin
 Senha: admin
 
-## 🔩 Back-End feito na linguagem python e Front-End feito com bootstrap.
+## 🔩 Informações
+Back-End feito na linguagem python e Front-End feito com bootstrap.
 
 ## 📌 Versão
 
