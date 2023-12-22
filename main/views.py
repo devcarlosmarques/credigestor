@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Proposta
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 def cadastro(request):
     if request.method == 'POST':
@@ -48,7 +48,7 @@ def fazer_login(request):
     return render(request, 'login/index.html')
 
 def home(request):
-    return render(request,'dashboard/index.html')
+    return render(request,'dashboard/noticias.html')
 
 def cadastro_proposta(request):
     
@@ -75,3 +75,15 @@ def cadastro_proposta(request):
 def consultar_proposta(request):
     lista_proposta = Proposta.objects.all()
     return render(request,'consultar/consultar_proposta.html', {'lista_proposta':lista_proposta})
+
+def fazer_logout(request):
+    logout(request)
+    messages.success(request, 'Você saiu do sistema!')
+    return redirect('login')
+
+def noticias(request):
+    return render(request,'dashboard/noticias.html')
+
+def consultar_usuario(request):
+    lista_usuario = User.objects.all()
+    return render(request,'consultar/consultar_usuario.html', {'lista_usuario':lista_usuario})

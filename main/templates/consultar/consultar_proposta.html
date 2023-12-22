@@ -24,6 +24,7 @@
           <th scope="col">Parcela:</th>
           <th scope="col">Prazo:</th>
           <th scope="col">Status da Proposta:</th>
+          <th scope="col">Ações:</th> <!-- New column for actions -->
         </tr>
       </thead>
       <tbody>
@@ -39,10 +40,15 @@
             <td>R$ {{ proposta.parcela }}</td>
             <td>{{ proposta.prazo }}x</td>
             <td>{{ proposta.status }}</td>
+            <td>
+              <!-- Add buttons for update and delete actions -->
+              <a href="" class="btn btn-primary btn-sm">Alterar</a>
+              <a href="" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
           </tr>
         {% empty %}
           <tr>
-            <td colspan="10">Nenhuma proposta cadastrada.</td>
+            <td colspan="11">Nenhuma proposta cadastrada.</td>
           </tr>
         {% endfor %}
       </tbody>
