@@ -1,9 +1,30 @@
 {% extends 'dashboard/index.html' %}
 
 {% block content %}
-
-    <body>
-        <h3>Página de noticias em construção</h3>
-    </body>
-
+  <body>
+    <h2>Página de Notícias</h2>
+    
+    {% if lista_noticia|length > 0 %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data de Publicação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for noticia in lista_noticia %}
+            <tr>
+              <td>{{ noticia.noticia }}</td>
+              <td>{{ noticia.descricao }}</td>
+              <td>{{ noticia.data }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Nenhuma notícia cadastrada.</p>
+    {% endif %}
+  </body>
 {% endblock %}

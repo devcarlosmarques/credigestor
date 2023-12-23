@@ -71,3 +71,11 @@ class Proposta(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Noticia(models.Model):
+    noticia = models.CharField(max_length=50)
+    descricao = models.TextField()
+    data = models.DateField(auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return self.noticia

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Proposta
+from .models import Proposta, Noticia
 from django.contrib.auth import authenticate, login, logout
 
 def cadastro(request):
@@ -82,7 +82,8 @@ def fazer_logout(request):
     return redirect('login')
 
 def noticias(request):
-    return render(request,'dashboard/noticias.html')
+    lista_noticia = Noticia.objects.all()
+    return render(request,'dashboard/noticias.html', {'lista_noticia':lista_noticia})
 
 def consultar_usuario(request):
     lista_usuario = User.objects.all()
