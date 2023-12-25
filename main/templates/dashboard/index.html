@@ -17,7 +17,7 @@
     <div class="wrapper d-flex align-items-stretch">
       <nav id="sidebar">
         <div class="p-4 pt-5">
-          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({% static 'dashboard/images/logo2.jpg' %});"></a>
+          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({% static 'dashboard/images/avatar.png' %});"></a>
           <ul class="list-unstyled components mb-5">
             <li>
               <a href="http://127.0.0.1:8000/noticias/">Pagina Inicial</a>
@@ -45,7 +45,7 @@
               </ul>
             </li>
             <li>
-              <a href="http://127.0.0.1:8000/logout/">Sair do Sistema</a>
+              <a href="http://127.0.0.1:8000/logout/">Sair</a>
             </li>
           </ul>
 
@@ -60,7 +60,7 @@
       <!-- Page Content -->
       <div id="content" class="p-4 p-md-5">
         {% if messages %}
-          <div class="alert alert-info" role="alert" style="width: 25%;">
+          <div class="alert alert-info" role="alert" style="width: 100%;">
             {% for message in messages %}
               {{ message }}
             {% endfor %}

@@ -10,6 +10,7 @@ def cadastro(request):
         campo_login = request.POST.get('campo_login')
         campo_senha = request.POST.get('campo_senha')
         campo_email = request.POST.get('campo_email')
+        campo_cargo = request.POST.get('campo_cargo')
 
         # Verificar se já existe um usuário com o mesmo nome de usuário
         if User.objects.filter(username=campo_login).exists():
@@ -21,7 +22,8 @@ def cadastro(request):
             username=campo_login,
             password=campo_senha,
             email=campo_email,
-            first_name=campo_nome
+            first_name=campo_nome,
+            is_superuser=campo_cargo,
         )
 
         messages.success(request, 'Usuário cadastrado com sucesso.')
