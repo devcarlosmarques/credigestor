@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CLM CONSIG - Sistema de Gerenciamento para Promotoras</title>
+    <title>CrediGestor - Gerenciamento de Promotoras</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -33,14 +33,14 @@
               <div style="display: flex; justify-content: center; align-items: center;">
                 <img src="{% static 'login/images/logo.png' %}" alt="Descrição da Imagem" style="width: 150px; height: 150px;" />
               </div>
-              <h3 class="text-center mb-4">CLM CONSIG</h3>
+              <h3 class="text-center mb-4">CrediGestor</h3>
               <form action="{% url 'login' %}" method="POST" class="login-form">
                 {% csrf_token %}
                 <div class="form-group">
-                  <input name="campo_login" type="text" class="form-control rounded-left" placeholder="Digite seu login" required />
+                  <input name="campo_login" type="text" class="form-control rounded-left" placeholder="Login" required />
                 </div>
                 <div class="form-group d-flex">
-                  <input name="campo_senha" type="password" class="form-control rounded-left" placeholder="Digite sua senha" required />
+                  <input name="campo_senha" type="password" class="form-control rounded-left" placeholder="Senha" required />
                 </div>
                 <div class="d-flex justify-content-center">
                   <button type="submit" class="form-control btn rounded submit px-3" style="background-color: black; color: white; width: 150px;">Acessar Sistema</button>
