@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Proposta, Noticia
 from django.contrib.auth import authenticate, login, logout
+from .forms import PropostaForm
 
 def cadastro(request):
     if request.method == 'POST':
@@ -90,3 +91,17 @@ def noticias(request):
 def consultar_usuario(request):
     lista_usuario = User.objects.all()
     return render(request,'consultar/consultar_usuario.html', {'lista_usuario':lista_usuario})
+
+def ajustar_proposta(request, id):
+    # Obtenha a proposta do banco de dados
+    proposta = get_object_or_404(Proposta, pk=id)
+    
+    if request.method == 'POST':
+        form = PropostaForm(request.POST, instance=proposta)
+        if form.is_valid():
+            form.save()
+            return redirect('consultar_proposta')
+    else:
+        form = PropostaForm(instance=proposta)
+    
+    return render(request, 'ajustar/ajustar_proposta.html', {'form': form})
