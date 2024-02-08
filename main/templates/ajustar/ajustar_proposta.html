@@ -1,0 +1,14 @@
+{% extends 'dashboard/index.html' %}
+
+{% block title %} Alterar Proposta {% endblock %}
+
+{% block content %}
+
+    <h2>Ajustar Proposta</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+{% endblock %}
